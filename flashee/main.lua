@@ -13,10 +13,10 @@ function love.keypressed(key)
 	    mode = not mode
 	end
 	if key == "+" then
-	    i = (i + 1)%7
+	    i = (i)%7 + 1
 	end
 	if key == "-" then
-	    i = (i - 1)%7
+	    i = (i + 5)%7  + 1
 	end
 end
 
@@ -30,7 +30,7 @@ function love.load()
 
 end
 
-local color   = "00ff00"
+local color   = "000000"
 local colors  = {"00ff00", "ff0000", "0000ff", "ffff00", "00ffff", "ff00ff", "ffffff"}
 local isflash = true
 
@@ -42,7 +42,7 @@ function love.update(dt)
 	love.timer.sleep(time - t)
 
     flash   = colors[i]
-    black   = colors[(i+1)%7 +1 ]
+    black   = colors[(i+1)%7 + 1]
     
     if mode == true then
         for y = 0,16 do    
